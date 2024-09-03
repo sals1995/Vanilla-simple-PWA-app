@@ -23,19 +23,27 @@ limitations under the License.
     <!-- Set title -->
     <title>Service Worker Example</title>
 
-    <link rel="manifest" href="./manifest/manifest.webmanifest">
+    <link rel="manifest" href="./manifest/manifest.json">
     <!-- Add stylesheet -->
 
     <link href="styles/index.css" rel="stylesheet">
-    <!-- <meta name="theme-color" content="#ffff00"> -->
+
   </head>
   <body>
+    <nav>
+        <a href="other.html">Other page</a>
+        
+        <a href="below/another.html">Another page</a>
+
+    </nav>
     <h1>Service Worker Example</h1>
-    <a href="other.html">Other page</a>
-    <br><br>
-    <a href="below/another.html">Another page</a>
     
     
+    <script>
+      if("serviceWorker" in navigator){
+        navigator.serviceWorker.register("sw.js")
+      }
+    </script>
    
     <script src="js/main.js"></script>
   </body>

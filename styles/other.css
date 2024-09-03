@@ -14,7 +14,32 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 body {
-  color: #E91E63;
+  background-color: #f280f6;
   font-family: 'Roboto','Helvetica','Arial',sans-serif;
-  padding: 20px;
+  margin: 0;
+  text-align: center;
+  color:  aliceblue;;
+}
+
+nav {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 80px;
+}
+
+a{
+  width: 50%;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 30px;
+  color:  #e409f8;
+  height: inherit;
+  line-height: 80px;
+  border-radius: 10px;
+}
+a:hover{
+  color: aliceblue;
+  background-color:   #e409f8;
+
 }

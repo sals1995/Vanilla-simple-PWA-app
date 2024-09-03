@@ -1,32 +1,30 @@
-
 self.addEventListener("install",(event)=>{
-
-    console.log("service worker installed!!!!!");
-    // self.skipWaiting()
-    event.waitUntil( 
-        caches.open("simpleApp-1").then(cache=>{
-           return cache.addAll(["index.html","styles/index.css","js/main.js","other.html","styles/other.css","js/other.js"])
-        }).catch(err=>console.log("cache error",err))
-     )
+    console.log("installed !!!!!");
+    self.skipWaiting()
+    event.waitUntil(
+        caches.open("our-app").then((cache)=> cache.addAll(["/","index.html","styles/index.css","js/main.js","other.html","styles/other.css","js/other.js"]))
+    )
 })
-
 
 self.addEventListener("activate",()=>{
-    console.log("service worker activate!!!!!");
+    console.log("activated");
+    
 })
 
+
 self.addEventListener("fetch",(event)=>{
-    console.log("Network request :",event.request.url);
+    console.log("send req to ",event.request.url);
     event.respondWith(
-        caches.match(event.request).then((file)=>{
+        // cache first
+        caches.match(event.request.url).then((file)=>{
             if(file){
-                console.log("Found in cache",event.request.url);
+                console.log("file found in cache");
                 return file
             }
-            console.log("Network request :",event.request.url);
-           return fetch(event.request.url)
-
-        }).catch(err=>console.log(err))
+            else{
+                console.log("file Not found in cache");
+               return fetch(event.request.url)
+            }
+        })
     )
-
 })
