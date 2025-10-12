@@ -17,34 +17,38 @@ limitations under the License.
 <html lang="en">
   <head>
     <!-- Set character encoding -->
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <!-- Set the viewport -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Set title -->
     <title>Service Worker Example</title>
-
-    <link rel="manifest" href="./manifest/manifest.json">
     <!-- Add stylesheet -->
 
-    <link href="styles/index.css" rel="stylesheet">
-
+    <link href="styles/index.css" rel="stylesheet" />
+    
+    <!-- Set manifest icons -->
+    <link rel="icon" type="image/png" href="manifest/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="manifest/favicon.svg" />
+    <link rel="shortcut icon" href="manifest/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="manifest/apple-touch-icon.png" />
+    <link rel="manifest" href="manifest/site.webmanifest" />
   </head>
   <body>
     <nav>
-        <a href="other.html">Other page</a>
-        
-        <a href="below/another.html">Another page</a>
+      <a href="other.html">Other page</a>
 
+      <a href="below/another.html">Another page</a>
     </nav>
     <h1>Service Worker Example</h1>
-    
-    
+
     <script>
-      if("serviceWorker" in navigator){
-        navigator.serviceWorker.register("sw.js")
-      }
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("./sw.js").then(() => {
+          // console.log("registered");
+        });
+      });
     </script>
-   
+
     <script src="js/main.js"></script>
   </body>
 </html>
