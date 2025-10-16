@@ -25,13 +25,7 @@ limitations under the License.
     <!-- Add stylesheet -->
 
     <link href="styles/index.css" rel="stylesheet" />
-    
-    <!-- Set manifest icons -->
-    <link rel="icon" type="image/png" href="manifest/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="manifest/favicon.svg" />
-    <link rel="shortcut icon" href="manifest/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="manifest/apple-touch-icon.png" />
-    <link rel="manifest" href="manifest/site.webmanifest" />
+    <link rel="manifest" href="./manifest/manifest.webmanifest">
   </head>
   <body>
     <nav>
@@ -42,13 +36,13 @@ limitations under the License.
     <h1>Service Worker Example</h1>
 
     <script>
-      window.addEventListener("load", () => {
-        navigator.serviceWorker.register("./sw.js").then(() => {
-          // console.log("registered");
-        });
-      });
+      window.addEventListener("load",()=>{
+        navigator.serviceWorker.register("./sw.js").then(()=>{
+          console.log("registered");
+          
+        })
+      })
     </script>
-
     <script src="js/main.js"></script>
   </body>
 </html>
